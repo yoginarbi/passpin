@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Password and Pin Generator</title>
+		<style>
+			/* Reset CSS */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
+
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				background: linear-gradient(135deg, #4b79a1, #283e51);
+				color: #333;
+			}
+
+			.container-wrapper {
+				display: flex;
+				gap: 30px;
+				width: 100%;
+				max-width: 850px;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.container {
+				background: #fff;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+				width: 100%;
+				max-width: 400px;
+				text-align: center;
+			}
+
+			h1 {
+				font-size: 1.8rem;
+				color: #4b79a1;
+				margin-bottom: 1rem;
+			}
+
+			label {
+				font-size: 1rem;
+				color: #555;
+			}
+
+			input[type="text"] {
+				width: 100%;
+				padding: 0.5rem;
+				margin: 0.5rem 0 1rem;
+				border: 2px solid #4b79a1;
+				border-radius: 5px;
+			}
+
+			button {
+				background: #4b79a1;
+				color: #fff;
+				padding: 0.5rem 1.5rem;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 1rem;
+				transition: background 0.3s;
+			}
+
+			button:hover {
+				background: #3a5e77;
+			}
+
+			.result {
+				margin-top: 1rem;
+				font-size: 1.2rem;
+				font-weight: bold;
+				color: #4b79a1;
+			}
+
+			#error1,
+			#error2 {
+				color: red;
+				margin-top: 0.5rem;
+				font-size: 0.9rem;
+			}
+
+			/* Responsive design: two rows for containers under 900px width */
+			@media (max-width: 900px) {
+				.container-wrapper {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-wrapper">
+			<div class="container">
+				<h1>Generate Password</h1>
+				<label for="genPassword">Enter Password Length</label>
+				<input type="text" id="genPassword" placeholder="e.g., 12" />
+				<button onclick="generateRandomPassword()">Generate</button>
+				<p id="error1"></p>
+				<div class="result">Password: <span id="password">-</span></div>
+			</div>
+			<div class="container">
+				<h1>Generate Pin</h1>
+				<label for="genPin">Enter Pin Length</label>
+				<input type="text" id="genPin" placeholder="e.g., 6" />
+				<button onclick="generateRandomPin()">Generate</button>
+				<p id="error2"></p>
+				<div class="result">Pin: <span id="pin">-</span></div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
